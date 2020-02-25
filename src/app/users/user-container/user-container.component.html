@@ -1,21 +1,26 @@
 <div class="user-item">
-  <div>
-    id:{{currentUser.id}}
+  <div *ngFor="let user of users" (click)="onClickUser(user)"
+  [ngClass]="{selected:currentUser?.id === user.id}">
+    <div>
+      id:{{user.id}}
+    </div>
+    <div>
+      username:{{user.userName}}
+    </div>
+    <div>
+      email:{{user.email}}
+    </div>
   </div>
-  <div>
-    username:{{currentUser.userName}}
-  </div>
-  <div>
-    email:{{currentUser.email}}
-  </div>
-  <div>
-    <input type="text" [value]="currentUser.email" #emailInput />
-  </div>
-  <div>
-    <input type="text" [value]="currentUser.userName" #nameInput />
-  </div>
-  <div>
-    <button (click)="saveUserData(emailInput.value, 
+  <div *ngIf="currentUser">
+    <div>
+      <input type="text" [value]="currentUser.email" #emailInput />
+    </div>
+    <div>
+      <input type="text" [value]="currentUser.userName" #nameInput />
+    </div>
+    <div>
+      <button (click)="saveUserData(emailInput.value, 
     nameInput.value)">Save</button>
+    </div>
   </div>
 </div>

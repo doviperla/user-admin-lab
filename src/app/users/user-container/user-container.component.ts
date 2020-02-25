@@ -9,26 +9,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserContainerComponent implements OnInit {
   currentUser: User;
+  users:User[];
   
   constructor() { }
 
   ngOnInit() {
     console.log("the User Container Init!!!");
-    this.currentUser = this.initUser(new User());
+    this.users = this.initUsers();
   }
 
-  initUser(user: User): User {
-    user.id = 0;
-    user.userName = "john_d";
-    user.email = "john.doe@gmail.com";
-    user.userInfo = new UserInfo();
+  onClickUser(user:User)
+  {
+    this.currentUser = user;
+  }
 
-    user.userInfo.firstName = "john";
-    user.userInfo.lastName = "doe";
-    user.userInfo.jobTitle = "Developer";
-    user.userInfo.avatar = "http://authenticgoods.co/wrapbootstrap/themes/sparks/img/team/avatar-male.png";
-    user.userInfo.phoneNumber = "01-234-343434";
-    return user;
+  initUsers(): User[] {
+    let users:User[] = new Array<User>();
+    users[0] = new User();
+    users[0].id = 0;
+    users[0].userName = "john_d";
+    users[0].email = "john.doe@gmail.com";
+    users[0].userInfo = new UserInfo();
+
+    users[0].userInfo.firstName = "john";
+    users[0].userInfo.lastName = "doe";
+    users[0].userInfo.jobTitle = "Developer";
+    users[0].userInfo.avatar = "http://authenticgoods.co/wrapbootstrap/themes/sparks/img/team/avatar-male.png";
+    users[0].userInfo.phoneNumber = "01-234-343434";
+
+    users[1] = new User();
+    users[1].id = 1;
+    users[1].userName = "dovi perla";
+    users[1].email = "john.doe@gmail.com";
+    users[1].userInfo = new UserInfo();
+
+    users[1].userInfo.firstName = "dovi";
+    users[1].userInfo.lastName = "perla";
+    users[1].userInfo.jobTitle = "Lacture";
+    users[1].userInfo.avatar = "http://authenticgoods.co/wrapbootstrap/themes/sparks/img/team/avatar-male.png";
+    users[1].userInfo.phoneNumber = "01-234-343434";
+
+    return users;
   }
 
   saveUserData(emailValue:string, nameValue:string)
