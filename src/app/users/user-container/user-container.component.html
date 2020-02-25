@@ -1,0 +1,21 @@
+<div class="user-item">
+  <div>
+    id:{{currentUser.id}}
+  </div>
+  <div>
+    username:{{currentUser.userName}}
+  </div>
+  <div>
+    email:{{currentUser.email}}
+  </div>
+  <div>
+    <input type="text" [value]="currentUser.email" #emailInput />
+  </div>
+  <div>
+    <input type="text" [value]="currentUser.userName" #nameInput />
+  </div>
+  <div>
+    <button (click)="saveUserData(emailInput.value, 
+    nameInput.value)">Save</button>
+  </div>
+</div>
