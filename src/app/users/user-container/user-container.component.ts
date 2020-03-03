@@ -52,10 +52,10 @@ export class UserContainerComponent implements OnInit {
     return users;
   }
 
-  saveUserData(emailValue:string, nameValue:string)
+  saveUserData(dataObj:any)
   {
-    //this.currentUser.email = emailValue;
-    //this.currentUser.userName = nameValue;
+    this.currentUser.email = dataObj.emailObj;
+    this.currentUser.userName = dataObj.nameObj;
   }
 
   // this.users =  [

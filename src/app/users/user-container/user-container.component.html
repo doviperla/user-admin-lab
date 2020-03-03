@@ -1,26 +1,10 @@
 <div class="user-item">
-  <div *ngFor="let user of users" (click)="onClickUser(user)"
-  [ngClass]="{selected:currentUser?.id === user.id}">
-    <div>
-      id:{{user.id}}
-    </div>
-    <div>
-      username:{{user.userName}}
-    </div>
-    <div>
-      email:{{user.email}}
-    </div>
-  </div>
+  <app-users-list
+  (UserSelected)="onClickUser($event)"
+  [users]="users" [currentUser]="currentUser"></app-users-list>
   <div *ngIf="currentUser">
-    <div>
-      <input type="text" [value]="currentUser.email" #emailInput />
-    </div>
-    <div>
-      <input type="text" [value]="currentUser.userName" #nameInput />
-    </div>
-    <div>
-      <button (click)="saveUserData(emailInput.value, 
-    nameInput.value)">Save</button>
-    </div>
+    <app-user-edit
+    (userSelected)="saveUserData($event)"
+    [currentUser]="currentUser"></app-user-edit>
   </div>
 </div>

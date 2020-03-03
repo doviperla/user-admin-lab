@@ -1,0 +1,10 @@
+<div>
+  <input type="text" [value]="currentUser.email" #emailInput />
+</div>
+<div>
+  <input type="text" [value]="currentUser.userName" #nameInput />
+</div>
+<div>
+  <button (click)="saveUserData(emailInput.value, 
+nameInput.value)">Save</button>
+</div>
