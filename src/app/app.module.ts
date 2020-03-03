@@ -1,3 +1,4 @@
+import { UsersModule } from './users/users.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,13 +9,11 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UserContainerComponent,
-    UsersListComponent,
-    UserEditComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
